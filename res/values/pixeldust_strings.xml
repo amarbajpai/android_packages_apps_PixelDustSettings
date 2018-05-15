@@ -645,5 +645,6 @@
     <string name="prefer_black_themes_summary">Use black theme overlays instead of dark ones when possible</string>
     <!-- QS themes -->
     <string name="qs_themes_category_title">Quick Settings colors</string>
+    <string name="qs_panel_alpha_title">Transparency</string>
 
 </resources>
