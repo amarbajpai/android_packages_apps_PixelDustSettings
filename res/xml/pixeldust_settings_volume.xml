@@ -31,4 +31,9 @@
         android:defaultValue="false"
         android:dependency="volume_rocker_wake" />
 
+    <Preference
+        android:key="volume_steps"
+        android:title="@string/volume_steps_title"
+        android:fragment="com.pixeldust.settings.fragments.VolumeSteps" />
+
 </PreferenceScreen>
