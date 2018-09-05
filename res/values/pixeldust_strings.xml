@@ -411,4 +411,9 @@
     <string name="status_bar_padding">Statusbar extra padding</string>
     <string name="corner_fwvals">Use default values</string>
 
+    <!-- Wakeup options -->
+    <string name="wakeup_when_plugged_unplugged_title">Wake up on charge</string>
+    <string name="wakeup_when_plugged_unplugged_summary">Wake up device if charger is plugged/unplugged.</string>
+    <string name="wake_cat">Wake option</string>
+
 </resources>
