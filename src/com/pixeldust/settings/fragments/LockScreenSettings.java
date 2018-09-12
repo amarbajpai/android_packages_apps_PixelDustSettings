@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
 
@@ -24,9 +25,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String FACE_UNLOCK_PREF = "face_auto_unlock";
     private static final String FACE_UNLOCK_PACKAGE = "com.android.facelock";
     private static final String CUSTOM_TEXT_CLOCK_FONT_SIZE  = "custom_text_clock_font_size";
+    private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
 
     private SwitchPreference mFaceUnlock;
     private CustomSeekBarPreference mCustomTextClockFontSize;
+    private ListPreference mLockClockFonts;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -53,6 +56,13 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mCustomTextClockFontSize.setValue(Settings.System.getInt(getContentResolver(),
                 Settings.System.CUSTOM_TEXT_CLOCK_FONT_SIZE, 32));
         mCustomTextClockFontSize.setOnPreferenceChangeListener(this);
+
+        // Lockscren Clock Fonts
+        mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
+        mLockClockFonts.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.LOCK_CLOCK_FONTS, 29)));
+        mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+        mLockClockFonts.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -62,6 +72,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             int top = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.CUSTOM_TEXT_CLOCK_FONT_SIZE, top*1);
+            return true;
+        } else if (preference == mLockClockFonts) {
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCK_CLOCK_FONTS,
+                    Integer.valueOf((String) newValue));
+            mLockClockFonts.setValue(String.valueOf(newValue));
+            mLockClockFonts.setSummary(mLockClockFonts.getEntry());
             return true;
         }
         return false;
