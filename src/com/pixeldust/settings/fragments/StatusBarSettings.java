@@ -47,6 +47,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private static final String NETWORK_TRAFFIC_CATEGORY = "network_traffic";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String SHOW_BATTERY_PERCENT = "show_battery_percent";
+    private static final String TEXT_CHARGING_SYMBOL = "text_charging_symbol";
 
     public static final int BATTERY_STYLE_PORTRAIT = 0;
     public static final int BATTERY_STYLE_CIRCLE = 1;
@@ -64,6 +65,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
     private ListPreference mBatteryStyle;
     private ListPreference mBatteryPercent;
+    private ListPreference mTextSymbol;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -103,6 +105,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
             updateNetworkTrafficEnabledStates(mode);
         }
 
+        mTextSymbol = (ListPreference) findPreference(TEXT_CHARGING_SYMBOL);
         mBatteryPercent = (ListPreference) findPreference(SHOW_BATTERY_PERCENT);
 
         mBatteryStyle = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
@@ -165,6 +168,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
     private void updateBatteryOptions(int batterystyle) {
         mBatteryPercent.setEnabled(batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
+        mTextSymbol.setEnabled(batterystyle == BATTERY_STYLE_TEXT);
     }
 
     @Override
