@@ -45,6 +45,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String NETWORK_TRAFFIC_CATEGORY = "network_traffic";
+    private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
+    private static final String SHOW_BATTERY_PERCENT = "show_battery_percent";
+
+    public static final int BATTERY_STYLE_PORTRAIT = 0;
+    public static final int BATTERY_STYLE_CIRCLE = 1;
+    public static final int BATTERY_STYLE_DOTTED_CIRCLE = 2;
+    public static final int BATTERY_STYLE_TEXT = 3;
+    public static final int BATTERY_STYLE_HIDDEN = 4;
 
     private PreferenceCategory mNetworkTrafficCategory;
     private DropDownPreference mNetTrafficMode;
@@ -53,6 +61,9 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mNetTrafficShowUnits;
 
     private static List<String> sNonIndexableKeys = new ArrayList<>();
+
+    private ListPreference mBatteryStyle;
+    private ListPreference mBatteryPercent;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -91,6 +102,16 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
             updateNetworkTrafficEnabledStates(mode);
         }
+
+        mBatteryPercent = (ListPreference) findPreference(SHOW_BATTERY_PERCENT);
+
+        mBatteryStyle = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
+        int batterystyle = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT,
+                UserHandle.USER_CURRENT);
+        mBatteryStyle.setOnPreferenceChangeListener(this);
+
+        updateBatteryOptions(batterystyle);
     }
 
     @Override
@@ -122,6 +143,10 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
             int units = Integer.valueOf((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NETWORK_TRAFFIC_UNITS, units);
+        } else if (preference == mBatteryStyle) {
+            int value = Integer.parseInt((String) newValue);
+            updateBatteryOptions(value);
+            return true;
         }
         return true;
     }
@@ -136,6 +161,10 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
         return super.onPreferenceTreeClick(preference);
+    }
+
+    private void updateBatteryOptions(int batterystyle) {
+        mBatteryPercent.setEnabled(batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
     }
 
     @Override
