@@ -80,6 +80,12 @@
             android:dependency="lockscreen_info"
             android:defaultValue="@*android:integer/weather_lockscreen_default_unit" />
 
+    <PreferenceScreen
+    	android:key="lockscreen_colors"
+       	android:title="@string/lockscreen_colors"
+        android:summary="@string/lockscreen_colors_summary"
+       	android:fragment="com.pixeldust.settings.fragments.LockColors" />
+
     <PreferenceCategory
         android:key="lockscreen_general"
         android:title="@string/lockscreen_general_category" />
