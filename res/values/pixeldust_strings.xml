@@ -639,4 +639,10 @@
     <string name="qs_bg_accent_title">Use Accent color</string>
     <string name="qs_bg_accent_summary">Set QS background color from System Accent</string>
 
+    <!-- Network Traffic -->
+    <string name="network_traffic_state_title">Show net activity in expanded statusbar</string>
+    <string name="network_traffic_autohide_threshold_title">Net activity autohide threshold (KB/s)</string>
+    <string name="traffic_title">Traffic indicators</string>
+    <string name="network_traffic_title">Network traffic</string>
+
 </resources>

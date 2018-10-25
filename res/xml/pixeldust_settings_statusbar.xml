@@ -29,6 +29,17 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/network_traffic_title"
+        android:key="network_traffic">
+
+        <Preference
+            android:key="traffic"
+            android:fragment="com.pixeldust.settings.fragments.Traffic"
+            android:title="@string/traffic_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="battery_style_category"
         android:title="@string/battery_style_category_title" >
 
