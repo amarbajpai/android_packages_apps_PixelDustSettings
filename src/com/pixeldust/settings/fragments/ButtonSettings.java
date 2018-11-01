@@ -174,7 +174,7 @@ public class ButtonSettings extends ActionFragment implements
         }
 
         if (variableBrightness) {
-            prefScreen.removePreference(mButtonBrightness_sw);
+            if (mButtonBrightness_sw != null) prefScreen.removePreference(mButtonBrightness_sw);
             if (mButtonBrightness != null) {
                 int ButtonBrightness = Settings.System.getInt(getContentResolver(),
                         Settings.System.BUTTON_BRIGHTNESS, 255);
@@ -182,7 +182,7 @@ public class ButtonSettings extends ActionFragment implements
                 mButtonBrightness.setOnPreferenceChangeListener(this);
             }
         } else {
-            prefScreen.removePreference(mButtonBrightness);
+            if (mButtonBrightness != null) prefScreen.removePreference(mButtonBrightness);
             if (mButtonBrightness_sw != null) {
                 mButtonBrightness_sw.setChecked((Settings.System.getInt(getContentResolver(),
                         Settings.System.BUTTON_BRIGHTNESS, 1) == 1));
