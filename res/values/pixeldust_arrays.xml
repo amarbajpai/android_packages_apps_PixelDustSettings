@@ -417,4 +417,10 @@
         <item>30000</item>
     </string-array>
 
+    <!-- QS tile styles -->
+    <color name="qs_tile_background_active">@*android:color/accent_device_default_light</color>
+    <color name="qs_tile_background_inactive">#FFDCDCDC</color>
+    <color name="qs_tile_icon_active">#FFFFFFFF</color>
+    <color name="qs_tile_icon_inactive">#FF656565</color>
+
 </resources>

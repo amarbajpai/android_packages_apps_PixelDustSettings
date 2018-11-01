@@ -638,4 +638,8 @@
     <string name="network_traffic_hidearrow">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the network traffic indicator arrows</string>
 
+    <!-- QS tile styles -->
+    <string name="qs_styles_dialog_title">Select a QS tile style</string>
+    <string name="theme_accent_picker_default">Default</string>
+
 </resources>
