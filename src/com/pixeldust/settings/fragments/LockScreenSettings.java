@@ -38,7 +38,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private ColorPickerPreference mVisualizerColor;
     private ListPreference mLockDateFonts;
     private CustomSeekBarPreference mClockFontSize;
-    private CustomSeekBarPreference mDateFontSi
+    private CustomSeekBarPreference mDateFontSize;
 
     @Override
     public void onCreate(Bundle icicle) {
