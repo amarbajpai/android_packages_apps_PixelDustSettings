@@ -30,6 +30,7 @@
     <string name="recents_title">Recents apps</string>
     <string name="statusbar_title">Status bar</string>
     <string name="volume_title">Volume Settings</string>
+    <string name="themes_title">Theme options</string>
 
     <!-- Color picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -635,5 +636,9 @@
     <!-- Battery indicator in QS panel -->
     <string name="show_battery_indicator_in_qs">Battery indicator in QS</string>
     <string name="show_battery_indicator_in_qs_summary">When pulling down show battery indicator in the quick settings panel instead of the status bar</string>
+
+    <!-- Themes -->
+    <string name="theme_main">Themes</string>
+    <string name="accent_color">Accent color</string>
 
 </resources>
