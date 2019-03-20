@@ -644,6 +644,8 @@
     <string name="base_theme">Base theme color</string>
     <string name="prefer_black_themes">Prefer black themes</string>
     <string name="prefer_black_themes_summary">Use black theme overlays instead of dark ones when possible</string>
+    <string name="settings_icon_tint">Tint settings icons</string>
+    <string name="settings_icon_tint_summary">Show off that accent 😉</string>
     <!-- QS themes -->
     <string name="qs_themes_category_title">Quick Settings colors</string>
     <string name="qs_panel_alpha_title">Transparency</string>
