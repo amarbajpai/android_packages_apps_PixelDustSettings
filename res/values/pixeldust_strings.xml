@@ -342,6 +342,9 @@
     <string name="lockscreen_clock_selection_gradient_likeqs">Monochrome gradient clock</string>
     <string name="lockscreen_clock_selection_text">Android Q Text Clock</string>
 
+    <!-- Lockscreen Q clock size -->
+    <string name="custom_text_clock_font_size_title">Q Clock size</string>
+
     <!-- Lockscreen Weather -->
     <string name="lockscreen_weather_category">Weather</string>
     <string name="weather_unit">Temperature unit</string>

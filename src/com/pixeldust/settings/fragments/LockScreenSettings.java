@@ -16,12 +16,17 @@ import com.android.internal.util.pixeldust.PixeldustUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class LockScreenSettings extends SettingsPreferenceFragment {
+import com.pixeldust.settings.preferences.CustomSeekBarPreference;
+
+public class LockScreenSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
 
     private static final String FACE_UNLOCK_PREF = "face_auto_unlock";
     private static final String FACE_UNLOCK_PACKAGE = "com.android.facelock";
+    private static final String CUSTOM_TEXT_CLOCK_FONT_SIZE  = "custom_text_clock_font_size";
 
     private SwitchPreference mFaceUnlock;
+    private CustomSeekBarPreference mCustomTextClockFontSize;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -42,6 +47,24 @@ public class LockScreenSettings extends SettingsPreferenceFragment {
             mFaceUnlock.setSummary(getActivity().getString(
                     R.string.face_auto_unlock_not_available));
         }
+
+        // Custom Text Clock Size
+        mCustomTextClockFontSize = (CustomSeekBarPreference) findPreference(CUSTOM_TEXT_CLOCK_FONT_SIZE);
+        mCustomTextClockFontSize.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.CUSTOM_TEXT_CLOCK_FONT_SIZE, 32));
+        mCustomTextClockFontSize.setOnPreferenceChangeListener(this);
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        if (preference == mCustomTextClockFontSize) {
+            int top = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.CUSTOM_TEXT_CLOCK_FONT_SIZE, top*1);
+            return true;
+        }
+        return false;
     }
 
     @Override
