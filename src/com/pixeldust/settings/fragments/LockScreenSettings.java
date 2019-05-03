@@ -31,6 +31,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String LOCK_DATE_FONTS = "lock_date_fonts";
     private static final String CLOCK_FONT_SIZE  = "lockclock_font_size";
     private static final String DATE_FONT_SIZE  = "lockdate_font_size";
+    private static final String KEY_LAVALAMP = "lockscreen_lavalamp_enabled";
 
     private SwitchPreference mFaceUnlock;
     private CustomSeekBarPreference mCustomTextClockFontSize;
@@ -39,6 +40,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private ListPreference mLockDateFonts;
     private CustomSeekBarPreference mClockFontSize;
     private CustomSeekBarPreference mDateFontSize;
+    private SwitchPreference mLavaLamp;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -101,6 +103,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mDateFontSize.setValue(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKDATE_FONT_SIZE,14));
         mDateFontSize.setOnPreferenceChangeListener(this);
+
+        // Lockscreen Visualizer pulse magic
+        mLavaLamp = (SwitchPreference) findPreference(KEY_LAVALAMP);
+        mLavaLamp.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -140,6 +146,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             int top = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKDATE_FONT_SIZE, top*1);
+            return true;
+        } else if (preference == mLavaLamp) {
+            boolean value = (Boolean) newValue;
+            Settings.Secure.putInt(resolver,
+                Settings.Secure.LOCKSCREEN_LAVALAMP_ENABLED, value ? 1 : 0);
             return true;
         }
         return false;
