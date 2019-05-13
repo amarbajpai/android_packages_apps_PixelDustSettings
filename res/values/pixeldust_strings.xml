@@ -51,8 +51,6 @@
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
 
-    <!-- Statusbar Tuner -->
-    <string name="statusbar_items_title">Statusbar items</string>
     <!-- Lockscreen icons -->
     <string name="lockscreen_tuner_title">Lockscreen shortcuts</string>
 
@@ -530,5 +528,10 @@
     <string name="lockscreen_lavalamp_title">Lava lamp</string>
     <string name="lockscreen_lavalamp_summary">Use a smooth lava lamp style color blend animation</string>
     <string name="lockscreen_lavalamp_speed_title">Color blend interval</string>
+
+    <!-- Status bar - icons -->
+    <string name="status_bar_icons_title">Status bar icons</string>
+    <string name="status_bar_system_icons_title">System icons</string>
+    <string name="status_bar_system_icons_summary">Control which status bar icons are shown</string>
 
 </resources>
