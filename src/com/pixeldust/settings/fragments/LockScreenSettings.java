@@ -73,7 +73,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         // Lockscren Clock Fonts
         mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
         mLockClockFonts.setValue(String.valueOf(Settings.System.getInt(
-                resolver, Settings.System.LOCK_CLOCK_FONTS, 29)));
+                resolver, Settings.System.LOCK_CLOCK_FONTS, 28)));
         mLockClockFonts.setSummary(mLockClockFonts.getEntry());
         mLockClockFonts.setOnPreferenceChangeListener(this);
 
@@ -90,7 +90,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         // Lockscren Date Fonts
         mLockDateFonts = (ListPreference) findPreference(LOCK_DATE_FONTS);
         mLockDateFonts.setValue(String.valueOf(Settings.System.getInt(
-                resolver, Settings.System.LOCK_DATE_FONTS, 29)));
+                resolver, Settings.System.LOCK_DATE_FONTS, 28)));
         mLockDateFonts.setSummary(mLockDateFonts.getEntry());
         mLockDateFonts.setOnPreferenceChangeListener(this);
 
