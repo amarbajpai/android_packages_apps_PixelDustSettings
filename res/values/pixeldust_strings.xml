@@ -552,4 +552,6 @@
     <string name="network_traffic_show_units">Show units</string>
     <string name="network_traffic_show_units_summary">Whether to show traffic measurement units in the statusbar</string>
 
+    <string name="lockscreen_clock_category">Clock and Date</string>
+
 </resources>

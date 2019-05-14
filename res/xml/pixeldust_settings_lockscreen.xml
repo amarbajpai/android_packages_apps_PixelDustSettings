@@ -18,89 +18,86 @@
     android:title="@string/lockscreen_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <Preference
-            android:title="@string/lockscreen_tuner_title" >
-            <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.systemui"
-                android:targetClass="com.android.systemui.tuner.LockscreenActivity" />
-    </Preference>
-
-    <com.pixeldust.settings.preferences.SystemSettingSwitchPreference
+    <PreferenceCategory
         android:key="lockscreen_clock"
-        android:title="@string/lockscreen_clock_title"
-        android:summary="@string/lockscreen_clock_summary"
-        android:defaultValue="true" />
+        android:title="@string/lockscreen_clock_category" />
 
-    <com.pixeldust.settings.preferences.SystemSettingListPreference
-        android:key="lockscreen_clock_selection"
-        android:title="@string/lockscreen_clock_selection_title"
-        android:entries="@array/lockscreen_clock_selection_entries"
-        android:entryValues="@array/lockscreen_clock_selection_values"
-        android:defaultValue="0" />
+        <com.pixeldust.settings.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_clock"
+            android:title="@string/lockscreen_clock_title"
+            android:summary="@string/lockscreen_clock_summary"
+            android:defaultValue="true" />
 
-    <ListPreference
-        android:key="lock_clock_fonts"
-        android:title="@string/lock_clock_font_title"
-        android:dialogTitle="@string/lock_clock_font_dialog_title"
-        android:entries="@array/lock_clock_fonts_entries"
-        android:entryValues="@array/lock_clock_fonts_values"
-        android:summary="@string/lock_clock_font_summary"
-        android:persistent="false" />
+        <com.pixeldust.settings.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_info"
+            android:title="@string/lockscreen_info_title"
+            android:summary="@string/lockscreen_info_summary"
+            android:defaultValue="true" />
 
-    <com.pixeldust.settings.preferences.CustomSeekBarPreference
-        android:key="lockclock_font_size"
-        android:title="@string/lockclock_font_size_title"
-        android:max="108"
-        settings:min="50"
-        settings:units="dp"
-        android:persistent="false"
-        android:defaultValue="68" />
+        <com.pixeldust.settings.preferences.SystemSettingListPreference
+            android:key="lockscreen_clock_selection"
+            android:title="@string/lockscreen_clock_selection_title"
+            android:entries="@array/lockscreen_clock_selection_entries"
+            android:entryValues="@array/lockscreen_clock_selection_values"
+            android:defaultValue="0" />
 
-    <ListPreference
-        android:key="lock_date_fonts"
-        android:title="@string/lock_date_font_title"
-        android:dialogTitle="@string/lock_date_font_dialog_title"
-        android:entries="@array/lock_clock_fonts_entries"
-        android:entryValues="@array/lock_clock_fonts_values"
-        android:summary="@string/lock_date_font_summary"
-        android:persistent="false" />
+        <ListPreference
+            android:key="lock_clock_fonts"
+            android:title="@string/lock_clock_font_title"
+            android:dialogTitle="@string/lock_clock_font_dialog_title"
+            android:entries="@array/lock_clock_fonts_entries"
+            android:entryValues="@array/lock_clock_fonts_values"
+            android:summary="@string/lock_clock_font_summary"
+            android:persistent="false" />
 
-    <com.pixeldust.settings.preferences.CustomSeekBarPreference
-        android:key="lockdate_font_size"
-        android:title="@string/lockdate_font_size_title"
-        android:max="25"
-        settings:min="10"
-        settings:units="dp"
-        android:defaultValue="16"
-        android:persistent="false" />
+        <com.pixeldust.settings.preferences.CustomSeekBarPreference
+            android:key="lockclock_font_size"
+            android:title="@string/lockclock_font_size_title"
+            android:max="108"
+            settings:min="50"
+            settings:units="dp"
+            android:persistent="false"
+            android:defaultValue="68" />
 
-    <com.pixeldust.settings.preferences.SystemSettingListPreference
-        android:key="lockscreen_text_clock_align"
-        android:title="@string/lockscreen_clock_align_title"
-        android:entries="@array/lockscreen_clock_align_entries"
-        android:entryValues="@array/lockscreen_clock_align_values"
-        android:defaultValue="0" />
+        <ListPreference
+            android:key="lock_date_fonts"
+            android:title="@string/lock_date_font_title"
+            android:dialogTitle="@string/lock_date_font_dialog_title"
+            android:entries="@array/lock_clock_fonts_entries"
+            android:entryValues="@array/lock_clock_fonts_values"
+            android:summary="@string/lock_date_font_summary"
+            android:persistent="false" />
 
-    <com.pixeldust.settings.preferences.CustomSeekBarPreference
-        android:key="custom_text_clock_font_size"
-        android:title="@string/custom_text_clock_font_size_title"
-        android:max="51"
-        settings:min="30"
-        settings:units="dp"
-        android:persistent="false"
-        android:defaultValue="32" />
+        <com.pixeldust.settings.preferences.CustomSeekBarPreference
+            android:key="lockdate_font_size"
+            android:title="@string/lockdate_font_size_title"
+            android:max="25"
+            settings:min="10"
+            settings:units="dp"
+            android:defaultValue="16"
+            android:persistent="false" />
 
-    <com.pixeldust.settings.preferences.SystemSettingSwitchPreference
-        android:key="lockscreen_info"
-        android:title="@string/lockscreen_info_title"
-        android:summary="@string/lockscreen_info_summary"
-        android:defaultValue="true" />
+        <com.pixeldust.settings.preferences.SystemSettingListPreference
+            android:key="lockscreen_text_clock_align"
+            android:title="@string/lockscreen_clock_align_title"
+            android:entries="@array/lockscreen_clock_align_entries"
+            android:entryValues="@array/lockscreen_clock_align_values"
+            android:defaultValue="0" />
 
-    <com.pixeldust.settings.preferences.SystemSettingSwitchPreference
-        android:key="lockscreen_battery_info"
-        android:title="@string/lockscreen_charging_current_title"
-        android:summary="@string/lockscreen_charging_current_summary"
-        android:defaultValue="true" />
+        <com.pixeldust.settings.preferences.CustomSeekBarPreference
+            android:key="custom_text_clock_font_size"
+            android:title="@string/custom_text_clock_font_size_title"
+            android:max="51"
+            settings:min="30"
+            settings:units="dp"
+            android:persistent="false"
+            android:defaultValue="32" />
+
+        <PreferenceScreen
+            android:key="lockscreen_colors"
+       	    android:title="@string/lockscreen_colors"
+            android:summary="@string/lockscreen_colors_summary"
+       	    android:fragment="com.pixeldust.settings.fragments.LockColors" />
 
     <PreferenceCategory
         android:key="lockscreen_weather"
@@ -115,12 +112,6 @@
             android:entryValues="@array/weather_unit_values"
             android:dependency="lockscreen_info"
             android:defaultValue="@*android:integer/weather_lockscreen_default_unit" />
-
-    <PreferenceScreen
-    	android:key="lockscreen_colors"
-       	android:title="@string/lockscreen_colors"
-        android:summary="@string/lockscreen_colors_summary"
-       	android:fragment="com.pixeldust.settings.fragments.LockColors" />
 
     <PreferenceCategory
         android:key="lockscreen_visualizer"
@@ -184,5 +175,18 @@
             android:key="face_auto_unlock"
             android:title="@string/face_auto_unlock_title"
             android:summary="@string/face_auto_unlock_summary" />
+
+        <com.pixeldust.settings.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_battery_info"
+            android:title="@string/lockscreen_charging_current_title"
+            android:summary="@string/lockscreen_charging_current_summary"
+            android:defaultValue="true" />
+
+        <Preference
+            android:title="@string/lockscreen_tuner_title" >
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.LockscreenActivity" />
+        </Preference>
 
 </PreferenceScreen>
