@@ -20,6 +20,6 @@
 
     <Preference
         android:key="notification_light"
-        android:fragment="com.android.settings.applications.NotificationApps"
+        android:fragment="com.android.settings.notificationlight.NotificationLightSettings"
         android:title="@string/notification_light_settings" />
 </PreferenceScreen>
