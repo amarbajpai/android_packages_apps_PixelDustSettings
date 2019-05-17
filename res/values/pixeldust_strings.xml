@@ -631,4 +631,8 @@
     <!-- Enable keys backlight-->
     <string name="button_brightness_sw_title">Enable backlight</string>
 
+    <!-- Battery estimates -->
+    <string name="battery_estimates_title">Battery Estimates in QS</string>
+    <string name="battery_estimates_summary">Show the estimated battery life in QS panel</string>
+
 </resources>
