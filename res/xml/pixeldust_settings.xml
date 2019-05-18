@@ -66,12 +66,13 @@
             android:fragment="com.pixeldust.settings.fragments.PowerMenuSettings"
             android:icon="@drawable/ic_homepage_powermenu"/>
 
-        <!-- Recents -->
+        <!-- Recents
         <Preference
             android:key="recents_category"
             android:title="@string/recents_title"
             android:fragment="com.pixeldust.settings.fragments.RecentsSettings"
             android:icon="@drawable/ic_homepage_recents"/>
+         -->
 
         <!-- Notifications -->
         <Preference
