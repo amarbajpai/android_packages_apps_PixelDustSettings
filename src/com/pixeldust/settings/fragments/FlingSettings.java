@@ -28,6 +28,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v14.preference.SwitchPreference;
@@ -52,6 +53,8 @@ import com.android.internal.utils.ActionHandler;
 import com.android.internal.utils.ActionUtils;
 import com.android.internal.utils.Config.ButtonConfig;
 import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 
 import com.pixeldust.settings.preferences.ActionFragment;
 import com.pixeldust.settings.preferences.ActionPreference;
@@ -65,9 +68,10 @@ import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FlingSettings extends ActionFragment implements
-        Preference.OnPreferenceChangeListener, IconPickHelper.OnPickListener {
+        Preference.OnPreferenceChangeListener, IconPickHelper.OnPickListener, Indexable {
     private static final String TAG = FlingSettings.class.getSimpleName();
     public static final String FLING_LOGO_URI = "fling_custom_icon_config";
 
@@ -736,4 +740,23 @@ public class FlingSettings extends ActionFragment implements
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.PIXELDUST;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    final ArrayList<SearchIndexableResource> result = new ArrayList<>();
+                    final SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.fling_settings;
+                    result.add(sir);
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    final List<String> keys = super.getNonIndexableKeys(context);
+                    return keys;
+                }
+    };
 }

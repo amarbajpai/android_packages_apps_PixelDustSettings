@@ -30,25 +30,24 @@ import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
+import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuInflater;
 
-import android.provider.SearchIndexableResource;
+import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.nano.MetricsProto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.logging.nano.MetricsProto;
-
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class LockColors extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener , Indexable {
+public class LockColors extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = "LockscreenColors";
 
