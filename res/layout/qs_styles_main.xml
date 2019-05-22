@@ -44,6 +44,20 @@
                 <include layout="@layout/qs_styles_roundedsquare" />
                 <include layout="@layout/qs_styles_squircle" />
                 <include layout="@layout/qs_styles_teardrop" />
+                <include layout="@layout/qs_styles_circlegradient" />
+                <include layout="@layout/qs_styles_circletrim" />
+                <include layout="@layout/qs_styles_dottedcircle" />
+                <include layout="@layout/qs_styles_circledualtone" />
+                <include layout="@layout/qs_styles_dualtonecircletrim" />
+                <include layout="@layout/qs_styles_mountain" />
+                <include layout="@layout/qs_styles_ninja" />
+                <include layout="@layout/qs_styles_pokesign" />
+                <include layout="@layout/qs_styles_wavey" />
+                <include layout="@layout/qs_styles_squircletrim" />
+                <include layout="@layout/qs_styles_cookie" />
+                <include layout="@layout/qs_styles_oreo" />
+                <include layout="@layout/qs_styles_circletrim_oreo" />
+                <include layout="@layout/qs_styles_squircletrim_oreo" />
 
             </GridLayout>
         </HorizontalScrollView>
