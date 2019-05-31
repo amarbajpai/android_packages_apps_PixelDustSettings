@@ -79,7 +79,6 @@
             android:dialogTitle="@string/battery_percent_title"
             android:entries="@array/battery_percent_entries"
             android:entryValues="@array/battery_percent_values"
-            android:dependency="show_battery_estimate"
             android:defaultValue="0" />
 
         <com.pixeldust.settings.preferences.SystemSettingListPreference
@@ -95,13 +94,13 @@
             android:key="show_battery_estimate"
             android:title="@string/battery_estimates_title"
             android:summary="@string/battery_estimates_summary"
+            android:persistent="false"
             android:defaultValue="false" />
 
         <com.pixeldust.settings.preferences.SystemSettingSwitchPreference
             android:key="show_battery_percent_on_qsb"
             android:title="@string/show_battery_percent_on_qsb"
             android:summary="@string/show_battery_percent_on_qsb_summary"
-            android:dependency="show_battery_estimate"
             android:defaultValue="true" />
 
     </PreferenceCategory>

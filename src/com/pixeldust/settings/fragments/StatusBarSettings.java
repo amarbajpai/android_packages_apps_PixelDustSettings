@@ -82,6 +82,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private ListPreference mBatteryStyle;
     private ListPreference mBatteryPercent;
     private ListPreference mTextSymbol;
+    private SwitchPreference mBatteryEstimates;
+    private SwitchPreference mBatteryPercentQSB;
 
     private static final String STATUS_BAR_CLOCK = "status_bar_clock";
     private static final String STATUS_BAR_CLOCK_SECONDS = "status_bar_clock_seconds";
@@ -91,6 +93,9 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private static final String STATUS_BAR_CLOCK_DATE_STYLE = "clock_date_style";
     private static final String STATUS_BAR_CLOCK_DATE_FORMAT = "clock_date_format";
     private static final String STATUS_BAR_CLOCK_DATE_POSITION = "statusbar_clock_date_position";
+    private static final String SHOW_BATTERY_ESTIMATE = "show_battery_estimate";
+    private static final String STATUS_BAR_PERCENT_QSB = "show_battery_percent_on_qsb";
+
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
     private static final int CUSTOM_CLOCK_DATE_FORMAT_INDEX = 18;
@@ -142,14 +147,22 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
         mTextSymbol = (ListPreference) findPreference(TEXT_CHARGING_SYMBOL);
         mBatteryPercent = (ListPreference) findPreference(SHOW_BATTERY_PERCENT);
-
+        mBatteryPercentQSB = (SwitchPreference) findPreference(STATUS_BAR_PERCENT_QSB);
         mBatteryStyle = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
         int batterystyle = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT,
                 UserHandle.USER_CURRENT);
         mBatteryStyle.setOnPreferenceChangeListener(this);
-
         updateBatteryOptions(batterystyle);
+
+        // battery estimates
+        mBatteryEstimates = (SwitchPreference) findPreference(SHOW_BATTERY_ESTIMATE);
+        int value = Settings.System.getIntForUser(resolver,
+                Settings.System.SHOW_BATTERY_ESTIMATE, 0,
+                UserHandle.USER_CURRENT);
+        mBatteryEstimates.setChecked(value != 0);
+        mBatteryEstimates.setOnPreferenceChangeListener(this);
+        updateBatteryEstimates(value != 0);
 
 	// clock settings
         mStatusBarClock = (ListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
@@ -327,6 +340,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
             mClockDatePosition.setSummary(mClockDatePosition.getEntries()[index]);
             parseClockDateFormats();
             return true;
+        } else if (preference == mBatteryEstimates) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+		SHOW_BATTERY_ESTIMATE, value ? 1 : 0);
+            updateBatteryEstimates(value);
+            return true;
         }
         return true;
     }
@@ -346,6 +365,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private void updateBatteryOptions(int batterystyle) {
         mBatteryPercent.setEnabled(batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
         mTextSymbol.setEnabled(batterystyle == BATTERY_STYLE_TEXT);
+    }
+
+    private void updateBatteryEstimates(boolean check) {
+        mBatteryPercent.setEnabled(!check);
+        mBatteryPercentQSB.setEnabled(!check);
     }
 
     private void parseClockDateFormats() {
