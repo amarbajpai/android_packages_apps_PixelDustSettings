@@ -43,6 +43,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.pixeldust.PixeldustUtils;
 import com.android.settings.Utils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -84,6 +85,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private ListPreference mTextSymbol;
     private SwitchPreference mBatteryEstimates;
     private SwitchPreference mBatteryPercentQSB;
+    private SwitchPreference mBatteryIndicatorQS;
 
     private static final String STATUS_BAR_CLOCK = "status_bar_clock";
     private static final String STATUS_BAR_CLOCK_SECONDS = "status_bar_clock_seconds";
@@ -95,6 +97,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private static final String STATUS_BAR_CLOCK_DATE_POSITION = "statusbar_clock_date_position";
     private static final String SHOW_BATTERY_ESTIMATE = "show_battery_estimate";
     private static final String STATUS_BAR_PERCENT_QSB = "show_battery_percent_on_qsb";
+    private static final String STATUS_BAR_INDICATOR_QS = "show_battery_indicator_in_qs";
 
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
@@ -148,6 +151,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         mTextSymbol = (ListPreference) findPreference(TEXT_CHARGING_SYMBOL);
         mBatteryPercent = (ListPreference) findPreference(SHOW_BATTERY_PERCENT);
         mBatteryPercentQSB = (SwitchPreference) findPreference(STATUS_BAR_PERCENT_QSB);
+               
         mBatteryStyle = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
         int batterystyle = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT,
@@ -163,6 +167,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         mBatteryEstimates.setChecked(value != 0);
         mBatteryEstimates.setOnPreferenceChangeListener(this);
         updateBatteryEstimates(value != 0);
+
+        // battery indicator in qs
+        mBatteryIndicatorQS = (SwitchPreference) findPreference(STATUS_BAR_INDICATOR_QS);
+        int valueQs = Settings.System.getIntForUser(resolver,
+                Settings.System.SHOW_BATTERY_INDICATOR_IN_QS, 1,
+                UserHandle.USER_CURRENT);
+        mBatteryIndicatorQS.setChecked(valueQs != 0);
+        mBatteryIndicatorQS.setOnPreferenceChangeListener(this);
 
 	// clock settings
         mStatusBarClock = (ListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
@@ -345,6 +357,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
 		SHOW_BATTERY_ESTIMATE, value ? 1 : 0);
             updateBatteryEstimates(value);
+            return true;
+        } else if (preference == mBatteryIndicatorQS) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+		STATUS_BAR_INDICATOR_QS, value ? 1 : 0);
+            // for whatever reason here we need a SysUI restart
+            PixeldustUtils.showSystemUiRestartDialog(getContext());
             return true;
         }
         return true;

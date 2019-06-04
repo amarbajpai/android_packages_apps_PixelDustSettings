@@ -635,4 +635,8 @@
     <string name="battery_estimates_title">Battery Estimates in QS</string>
     <string name="battery_estimates_summary">Show the estimated battery life in QS panel</string>
 
+    <!-- Battery indicator in QS panel -->
+    <string name="show_battery_indicator_in_qs">Battery indicator in QS</string>
+    <string name="show_battery_indicator_in_qs_summary">When pulling down show battery indicator in the quick settings panel instead of the status bar</string>
+
 </resources>
