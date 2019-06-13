@@ -553,6 +553,8 @@
     <string name="network_traffic_units_megabytes">Megabytes per second (MB/s)</string>
     <string name="network_traffic_show_units">Show units</string>
     <string name="network_traffic_show_units_summary">Whether to show traffic measurement units in the statusbar</string>
+    <string name="network_traffic_expanded_status_bar_state">Show network traffic levels on pull down</string>
+    <string name="network_traffic_expanded_status_bar_state_summary">Show network traffic monitor on expanded status bar when pulling down</string>
 
     <string name="lockscreen_clock_category">Clock and Date</string>
 

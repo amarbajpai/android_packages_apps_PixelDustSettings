@@ -74,6 +74,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
     private PreferenceCategory mNetworkTrafficCategory;
     private DropDownPreference mNetTrafficMode;
+    private SwitchPreference mNetTrafficExpandedStatusbar;
     private SwitchPreference mNetTrafficAutohide;
     private DropDownPreference mNetTrafficUnits;
     private SwitchPreference mNetTrafficShowUnits;
@@ -129,6 +130,10 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
             int mode = Settings.System.getIntForUser(resolver,
                     Settings.System.NETWORK_TRAFFIC_MODE, 0, UserHandle.USER_CURRENT);
             mNetTrafficMode.setValue(String.valueOf(mode));
+
+            mNetTrafficExpandedStatusbar = (SwitchPreference)
+                    findPreference(Settings.System.NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE);
+            mNetTrafficExpandedStatusbar.setOnPreferenceChangeListener(this);
 
             mNetTrafficAutohide = (SwitchPreference)
                     findPreference(Settings.System.NETWORK_TRAFFIC_AUTOHIDE);
@@ -371,6 +376,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
     private void updateNetworkTrafficEnabledStates(int mode) {
         final boolean enabled = mode != 0;
+        mNetTrafficExpandedStatusbar.setEnabled(enabled);
         mNetTrafficAutohide.setEnabled(enabled);
         mNetTrafficUnits.setEnabled(enabled);
         mNetTrafficShowUnits.setEnabled(enabled);
