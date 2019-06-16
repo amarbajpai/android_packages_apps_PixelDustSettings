@@ -180,14 +180,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        if (mNetworkTrafficCategory != null && !isNetworkTrafficAvailable()) {
-            getPreferenceScreen().removePreference(mNetworkTrafficCategory);
-        }
-    }
-
-    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         AlertDialog dialog;
         if (preference == mBatteryStyle) {

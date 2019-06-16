@@ -147,7 +147,7 @@ public class ThemeFragment extends SettingsPreferenceFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.theme);
+        addPreferencesFromResource(R.xml.pixeldust_settings_themes);
         // OMS and PMS setup
         mOverlayService = ServiceManager.getService(Context.OVERLAY_SERVICE) != null ? new OverlayManagerWrapper()
                 : null;
@@ -294,7 +294,7 @@ public class ThemeFragment extends SettingsPreferenceFragment
         public List<SearchIndexableResource> getXmlResourcesToIndex(Context context, boolean enabled) {
             List<SearchIndexableResource> indexables = new ArrayList<>();
             SearchIndexableResource indexable = new SearchIndexableResource(context);
-            indexable.xmlResId = R.xml.theme;
+            indexable.xmlResId = R.xml.pixeldust_settings_themes;
             indexables.add(indexable);
             return indexables;
         }
@@ -355,23 +355,4 @@ public class ThemeFragment extends SettingsPreferenceFragment
             return false;
         }
     }
-
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    final ArrayList<SearchIndexableResource> result = new ArrayList<>();
-                    final SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.pixeldust_settings_themes;
-                    result.add(sir);
-                    return result;
-                }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    final List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
-    };
 }
