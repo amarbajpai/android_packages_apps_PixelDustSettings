@@ -37,11 +37,6 @@
             android:entries="@array/systemui_theme_entries"
             android:entryValues="@array/systemui_theme_values" />
 
-        <com.pixeldust.settings.preferences.SystemSettingSwitchPreference
-            android:key="prefer_black_themes"
-            android:title="@string/prefer_black_themes"
-            android:summary="@string/prefer_black_themes_summary"
-            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
