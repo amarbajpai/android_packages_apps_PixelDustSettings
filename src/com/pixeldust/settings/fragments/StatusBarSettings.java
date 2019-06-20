@@ -307,7 +307,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     }
 
     private void updateBatteryEstimates(boolean check) {
-        mBatteryPercent.setEnabled(!check);
         mBatteryPercentQSB.setEnabled(!check);
     }
 
