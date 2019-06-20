@@ -24,7 +24,7 @@
             android:key="themes_category"
             android:title="@string/themes_title"
             android:fragment="com.pixeldust.settings.fragments.ThemeFragment"
-            android:icon="@drawable/ic_homepage_recents"/>
+            android:icon="@drawable/ic_homepage_themes"/>
 
         <!-- Status Bar -->
         <com.pixeldust.settings.preferences.CardviewPreference
