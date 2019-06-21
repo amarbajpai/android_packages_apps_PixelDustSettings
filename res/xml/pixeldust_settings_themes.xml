@@ -43,6 +43,11 @@
         android:key="qs_category"
         android:title="@string/qs_themes_category_title" >
 
+        <Preference
+            android:key="qs_tile_style"
+            android:title="@string/qs_tile_style_title"
+            settings:controller="com.android.settings.display.QsTileStylesPreferenceController" />
+
         <com.pixeldust.settings.preferences.CustomSeekBarPreference
             android:key="qs_panel_alpha"
             android:title="@string/qs_panel_alpha_title"
