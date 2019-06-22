@@ -40,13 +40,22 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="qs_category"
-        android:title="@string/qs_themes_category_title" >
+        android:key="qs_tile_styles_category"
+        android:title="@string/qs_tile_styles_category_title" >
 
         <Preference
             android:key="qs_tile_style"
-            android:title="@string/qs_tile_style_title"
-            settings:controller="com.android.settings.display.QsTileStylesPreferenceController" />
+            android:title="@string/qs_tile_style_title">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.display.QsTileStylesPreferenceController" />
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qs_category"
+        android:title="@string/qs_themes_category_title" >
 
         <com.pixeldust.settings.preferences.CustomSeekBarPreference
             android:key="qs_panel_alpha"
