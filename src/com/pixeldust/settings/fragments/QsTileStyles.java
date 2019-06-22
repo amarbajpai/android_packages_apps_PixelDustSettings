@@ -36,7 +36,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.internal.statusbar.ThemeAccentUtils;
+import com.android.internal.util.pixeldust.PixeldustUtils;
 import com.android.settings.R;
 import com.android.settings.core.instrumentation.InstrumentedDialogFragment;
 
@@ -197,58 +197,58 @@ public class QsTileStyles extends InstrumentedDialogFragment implements OnClickL
         LinearLayout oreocircletrim = mView.findViewById(R.id.QsTileStyleCircletrimOreo);
         LinearLayout oreosquircletrim = mView.findViewById(R.id.QsTileStyleSquircletrimOreo);
 
-        if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 1 )) {
+        if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 1 )) {
             setAlphaForAll(res);
             square.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 2 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 2 )) {
             setAlphaForAll(res);
             roundedsquare.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 3 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 3 )) {
             setAlphaForAll(res);
             squircle.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 4 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 4 )) {
             setAlphaForAll(res);
             teardrop.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 5 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 5 )) {
             setAlphaForAll(res);
             circlegradient.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 6 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 6 )) {
             setAlphaForAll(res);
             circletrim.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 7 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 7 )) {
             setAlphaForAll(res);
             dottedcircle.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 8 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 8 )) {
             setAlphaForAll(res);
             dualtonecircle.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 9 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 9 )) {
             setAlphaForAll(res);
             dualtonecircletrim.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 10 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 10 )) {
             setAlphaForAll(res);
             mountain.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 11 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 11 )) {
             setAlphaForAll(res);
             ninja.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 12 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 12 )) {
             setAlphaForAll(res);
             pokesign.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 13 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 13 )) {
             setAlphaForAll(res);
             wavey.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 14 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 14 )) {
             setAlphaForAll(res);
             squircletrim.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 15 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 15 )) {
             setAlphaForAll(res);
             cookie.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 16 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 16 )) {
             setAlphaForAll(res);
             oreo.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 17 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 17 )) {
             setAlphaForAll(res);
             oreocircletrim.setAlpha((float) 1.0);
-        } else if (ThemeAccentUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 18 )) {
+        } else if (PixeldustUtils.isUsingQsTileStyles(mOverlayManager, mCurrentUserId, 18 )) {
             setAlphaForAll(res);
             oreosquircletrim.setAlpha((float) 1.0);
         } else {
